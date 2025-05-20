@@ -1,0 +1,73 @@
+# ------------------------------
+# Name of the workflow
+# ------------------------------
+name: CI for Coffee Forecast App
+
+# ------------------------------
+# Trigger when this runs
+# ------------------------------
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# ------------------------------
+# Job: Runs on GitHub-hosted VM
+# ------------------------------
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ------------------------------
+      # Checkout repository
+      # ------------------------------
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./coffee_sales_forecast
+          push: true
+          tags: jeihyde25/coffee-forecast-app:latest
+
+      # ------------------------------
+      # Install python
+      # ------------------------------
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13
+
+      # ------------------------------
+      # Install project dependencies
+      # ------------------------------
+      - name: Install dependencies
+        run: |
+          cd coffee_sales_forecast
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # ------------------------------
+      # Run tests if available
+      # ------------------------------
+      - name: Run tests (if available)
+        run: |
+          cd coffee_sales_forecast
+          if [ -d "tests" ]; then python -m unittest discover tests; else echo "No tests found."; fi
+
+      # ------------------------------
+      # Sanity check
+      # ------------------------------
+      - name: Catch syntax errors
+        run: |
+          cd coffee_sales_forecast
+          python -m py_compile notebook.py
