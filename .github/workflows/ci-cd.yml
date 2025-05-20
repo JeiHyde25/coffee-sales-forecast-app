@@ -35,9 +35,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./coffee_sales_forecast
+          context: .
           push: true
-          tags: jeihyde25/coffee-forecast-app:latest
+          tags: jeihyde25/coffee-sales-forecast-app:latest
 
       # ------------------------------
       # Install python
@@ -52,7 +52,6 @@ jobs:
       # ------------------------------
       - name: Install dependencies
         run: |
-          cd coffee_sales_forecast
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
@@ -70,4 +69,4 @@ jobs:
       - name: Catch syntax errors
         run: |
           cd coffee_sales_forecast
-          python -m py_compile notebook.py
+          python -m py_compile src/notebook.py
