@@ -67,5 +67,4 @@ jobs:
       # ------------------------------
       - name: Catch syntax errors
         run: |
-          cd coffee_sales_forecast
           python -m py_compile src/notebook.py
