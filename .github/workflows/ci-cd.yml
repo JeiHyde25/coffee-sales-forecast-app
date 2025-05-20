@@ -60,7 +60,6 @@ jobs:
       # ------------------------------
       - name: Run tests (if available)
         run: |
-          cd coffee_sales_forecast
           if [ -d "tests" ]; then python -m unittest discover tests; else echo "No tests found."; fi
 
       # ------------------------------
