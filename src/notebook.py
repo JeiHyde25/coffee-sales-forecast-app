@@ -72,7 +72,8 @@ mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
 # Save to txt file
-with open('/tmp/model_metrics.txt', 'w') as f:
+os.makedirs("outputs", exist_ok=True)
+with open('outputs/model_metrics.txt', 'w') as f:
     f.write(f"Mean Absolute Error: {mae}\n")
     f.write(f"Mean Squared Error: {mse}\n")
     f.write(f"R2 Score: {r2}")
