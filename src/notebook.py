@@ -95,7 +95,7 @@ future_days['predicted_sales'] = future_predictions
 future_days['date'] = pd.to_datetime(daily_sales['date'].max()) + pd.to_timedelta(future_days['days_since_start'] - daily_sales['days_since_start'].max(), unit='d')
 
 # Save predictions to CSV
-future_days[['date', 'predicted_sales']].to_csv('future_predictions.csv', index=False)
+future_days[['date', 'predicted_sales']].to_csv('output/future_predictions.csv', index=False)
 
 # Visualize future broadcasts
 plt.plot(future_days['date'], future_days['predicted_sales'], marker='o', color='blue')

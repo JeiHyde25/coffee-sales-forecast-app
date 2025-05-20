@@ -1,61 +1,106 @@
-# Coffee Sales Forecasting App
 
-## Overview
-This project implements a sales forecasting system for coffee shops using linear regression. It processes historical sales data to predict daily revenue, helping coffee shop owners make informed business decisions.
+# ☕ Coffee Sales Forecast App
 
-## Features
-- Historical sales data analysis
-- Daily revenue prediction
-- Seasonal trend analysis
-- Interactive visualizations
-- Performance metrics tracking
+![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Streamlit](https://img.shields.io/badge/Made%20with-Streamlit-orange)
 
-## Technology Stack
-- Python 3.x
-- Jupyter Notebook
-- pandas
-- scikit-learn
-- matplotlib/seaborn
+This is a Streamlit-based web application that predicts coffee sales based on historical CSV data using a linear regression model. It includes file upload support, future date forecasting, and performance metric output.
 
-## Project Structure
+🚀 [Live Demo](https://coffee-forecast-app.onrender.com)
+
+---
+
+## 📁 Project Structure
+
 ```
-.
-├── notebook.ipynb          # Main Jupyter notebook with analysis
-├── notebook.py            # Python script version of the notebook
-├── model_metrics         # Model performance metrics
-└── future_predictions.csv # Generated predictions
+coffee-sales-forecast-app/
+├── data/                           # Input CSVs
+├── src/
+│   ├── notebook.ipynb              # Model development notebook
+│   └── notebook.py                 # Main Streamlit app
+├── Dockerfile                      # Container configuration
+├── LICENSE                         # MIT License
+├── README.md                       # This file
+├── requirements.txt                # Python dependencies
 ```
 
-## Installation
-1. Create a virtual environment and activate it:
+---
+
+## 🔧 Features
+
+- 📈 Upload your coffee sales CSV data
+- 📅 Predict future daily sales over N days
+- 📊 View and download model predictions and metrics
+- 🧪 View model performance (MAE, MSE, R²)
+
+---
+
+## 🚀 Tech Stack
+
+- **Python 3.13**
+- **Streamlit**
+- **scikit-learn**
+- **pandas**, **matplotlib**
+- **Docker**
+- **GitHub Actions** for CI/CD
+- **Render** for deployment
+
+---
+
+## 🛠️ Getting Started (Local)
+
+### 1. Clone the repository
 ```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+git clone https://github.com/JeiHyde25/coffee-sales-forecast-app.git
+cd coffee-sales-forecast-app
 ```
 
-2. Install dependencies:
+### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
-1. Activate the virtual environment:
+### 3. Run the app
 ```bash
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+streamlit run src/notebook.py
 ```
 
-2. Run the Jupyter notebook:
+---
+
+## 📦 Docker
+
+To run in Docker:
+
 ```bash
-jupyter notebook notebook.ipynb
+docker build -t coffee-forecast-app .
+docker run -p 8080:8080 coffee-forecast-app
 ```
 
-Or run the Python script directly:
-```bash
-python notebook.py
+---
+
+## 📊 Model Performance
+
+```
+Mean Absolute Error : 175.22
+Mean Squared Error  : 42268.66
+R² Score             : 0.68
 ```
 
-## Model Performance
-The project includes detailed model performance metrics, which can be found in the `model_metrics.txt` file. The current model achieves:
-- Mean Absolute Error (MAE): 130.51
-- R-squared Score: 0.26
-- Root Mean Square Error (RMSE): 26320.37
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**Harold Tago**  
+[GitHub: JeiHyde25](https://github.com/JeiHyde25)
+
+---
+
+## 📫 Contact
+
+For questions or collaborations, feel free to reach out via GitHub or [LinkedIn](https://www.linkedin.com/in/yourprofile)
