@@ -1,0 +1,66 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.Python
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Data & artifacts (optional — if data is reproducible)
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.pkl
+*.joblib
+
+# Streamlit generated cache
+.streamlit/
+.cache/
+
+# Docker
+*.pid
+*.tar
+*.img
+*.container
+*.log
+.dockerignore
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+.coverage
+htmlcov/
+coverage.xml
+
+# Pytest / Test discovery
+.pytest_cache/
+nosetests.xml
+test-results.xml
+
+# GitHub Actions cache (optional)
+__github__/
+
+# Ignore model output unless version-controlled
+model_metrics.txt
+future_predictions.csv
+src/output/model_metrics.txt
+src/output/future_predictions.csv
